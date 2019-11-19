@@ -8,7 +8,9 @@ import { GET_WEATHER, SET_LOADING } from '../types';
 const weatherUrl =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:5000/api/weather-data/'
-    : process.env.WEATHER_URL;
+    : process.env.WEATHER_URL ||
+      'https://weather-app-b.herokuapp.com/api/weather-data'; // if environment variable not available
+
 // Initial state used
 const WeatherState = props => {
   const initialState = {
